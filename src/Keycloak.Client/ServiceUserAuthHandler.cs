@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 
 using Keycloak.Client.Models;
 
-using Microsoft.Extensions.Options;
 using Microsoft.Net.Http.Headers;
 
 namespace Keycloak.Client
@@ -13,9 +12,9 @@ namespace Keycloak.Client
     {
         private readonly IKeycloakAuthClient _keycloakAuthClient;
         private readonly IKeycloakAuthTokenStore _keycloakAuthTokenStore;
-        private readonly IOptions<KeycloakOptions> _keycloakOptions;
+        private readonly KeycloakOptions _keycloakOptions;
 
-        public ServiceUserAuthHandler(IKeycloakAuthClient keycloakAuthClient, IKeycloakAuthTokenStore keycloakAuthTokenStore, IOptions<KeycloakOptions> keycloakOptions)
+        public ServiceUserAuthHandler(IKeycloakAuthClient keycloakAuthClient, IKeycloakAuthTokenStore keycloakAuthTokenStore, KeycloakOptions keycloakOptions)
         {
             _keycloakAuthClient = keycloakAuthClient;
             _keycloakAuthTokenStore = keycloakAuthTokenStore;
@@ -28,8 +27,8 @@ namespace Keycloak.Client
             {
                 var token = await _keycloakAuthTokenStore.GetOrFetchAccessTokenAsync(() => _keycloakAuthClient.GetServiceTokenAsync(new ServiceClientCredentials()
                 {
-                    ClientId = _keycloakOptions.Value?.ClientId,
-                    ClientSecret = _keycloakOptions.Value?.ClientSecret,
+                    ClientId = _keycloakOptions.ClientId,
+                    ClientSecret = _keycloakOptions.ClientSecret,
                 }));
 
                 request.Headers.Add(HeaderNames.Authorization, $"Bearer {token}");

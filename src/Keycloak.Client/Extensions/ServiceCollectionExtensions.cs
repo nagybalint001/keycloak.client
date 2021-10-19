@@ -2,7 +2,6 @@
 
 using Keycloak.Client.Models;
 
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 using Refit;
@@ -11,9 +10,11 @@ namespace Keycloak.Client.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddKeycloakClient(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddKeycloakClient(this IServiceCollection services, Action<KeycloakOptions> configure)
         {
-            var options = services.ConfigureOption<KeycloakOptions>(configuration);
+            var options = new KeycloakOptions();
+            configure(options);
+            services.AddSingleton(options);
 
             services
                 .AddRefitClient<IKeycloakAuthClient>()
@@ -23,7 +24,7 @@ namespace Keycloak.Client.Extensions
             services.AddSingleton<IKeycloakAuthTokenStore, KeycloakAuthTokenStore>();
 
             services
-                .AddRefitClient<IKeycloakClient>()
+                .AddRefitClient<IKeycloakUserClient>()
                 .ConfigureHttpClient(c => c.BaseAddress = new Uri($"{options.KeycloakBasePath}/auth/admin/realms/{options.Realm}"))
                 .AddHttpMessageHandler<ServiceUserAuthHandler>();
 

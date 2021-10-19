@@ -3,11 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>0.1.1</Version>
+    <Version>0.1.2</Version>
     <Authors>Bálint Nagy</Authors>
     <Description>HttpClient wrapper for Keycloak API</Description>
     <Copyright>Copyright (c) 2021 Bálint Nagy</Copyright>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/nagybalint001/keycloak.client</PackageProjectUrl>
     <PackageIcon>keycloak_icon.png</PackageIcon>
     <PackageIconUrl />
@@ -20,6 +19,7 @@
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,16 +27,10 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="../../README.md">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="../../LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>

@@ -8,7 +8,7 @@ using Refit;
 
 namespace Keycloak.Client
 {
-    public interface IKeycloakClient
+    public interface IKeycloakUserClient
     {
         [Get("/users")]
         Task<List<UserRepresentation>> GetUsersAsync(
