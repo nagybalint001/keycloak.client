@@ -8,7 +8,7 @@ using Microsoft.Net.Http.Headers;
 
 namespace Keycloak.Client
 {
-    public class ServiceUserAuthHandler : DelegatingHandler
+    internal class ServiceUserAuthHandler : DelegatingHandler
     {
         private readonly IKeycloakAuthClient _keycloakAuthClient;
         private readonly IKeycloakAuthTokenStore _keycloakAuthTokenStore;
