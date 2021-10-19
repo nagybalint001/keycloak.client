@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Version>0.1.0</Version>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Version>0.1.1</Version>
     <Authors>Bálint Nagy</Authors>
     <Description>HttpClient wrapper for Keycloak API</Description>
     <Copyright>Copyright (c) 2021 Bálint Nagy</Copyright>
@@ -24,6 +24,20 @@
 
   <ItemGroup>
     <None Include="../keycloak_icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../../README.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../../LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
