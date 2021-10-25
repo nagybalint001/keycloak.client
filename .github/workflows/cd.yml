@@ -31,4 +31,4 @@ jobs:
     - name: Pack
       run: dotnet pack --no-restore
     - name: Push
-      run: dotnet nuget push ${{ env.GITHUB_WORKSPACE }}/*.nupkg --api-key ${{ secrets.API_KEY }} --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push **/*.nupkg --api-key ${{ secrets.API_KEY }} --source https://api.nuget.org/v3/index.json
