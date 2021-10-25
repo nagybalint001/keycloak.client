@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>0.1.3</Version>
+    <Version>$(GITVERSION_MAJORMINORPATCH)</Version>
     <Authors>Bálint Nagy</Authors>
     <Description>HttpClient wrapper for Keycloak API</Description>
     <Copyright>Copyright (c) 2021 Bálint Nagy</Copyright>

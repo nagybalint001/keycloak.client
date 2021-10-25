@@ -1,0 +1,24 @@
+mode: Mainline
+commit-message-incrementing: Enabled
+increment: None
+tag-prefix: '[vV]'
+assembly-versioning-scheme: MajorMinorPatch
+assembly-file-versioning-scheme: MajorMinorPatch
+assembly-informational-format: '{MajorMinorPatch}'
+branches:
+  master:
+    increment: None
+    regex: 'master$|main$'
+  release:
+    increment: None
+  feature:
+    increment: None
+  pull-request:
+    increment: None
+  hotfix:
+    increment: None
+  support:
+    increment: None
+  develop:
+    increment: None
+    is-mainline: true
