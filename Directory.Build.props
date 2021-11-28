@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<Version>$(GITVERSION_MAJORMINORPATCH)</Version>
+		<Authors>Bálint Nagy</Authors>
+		<Description>HttpClient wrapper for Keycloak API</Description>
+		<Copyright>Copyright (c) 2021 Bálint Nagy</Copyright>
+		<PackageProjectUrl>https://github.com/nagybalint001/keycloak.client</PackageProjectUrl>
+		<PackageIcon>keycloak_icon.png</PackageIcon>
+		<PackageIconUrl />
+		<RepositoryUrl>https://github.com/nagybalint001/keycloak.client</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<PackageTags>keycloak;client;keycloak.client</PackageTags>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<NoWarn>$(NoWarn);1591</NoWarn>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="../keycloak_icon.png" Pack="true" PackagePath="\" />
+		<None Include="../../LICENSE" Pack="true" PackagePath="\" />
+		<None Include="../../README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+</Project>

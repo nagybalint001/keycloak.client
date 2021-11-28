@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31729.503
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Keycloak.Client", "src\Keycloak.Client\Keycloak.Client.csproj", "{91A1C769-80B4-4EC3-8511-F8E16F93E3C3}"
 EndProject
@@ -10,6 +10,19 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{353C96EB-D680-4487-8BF9-895CAF084D1D}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{82355856-BF4D-4B46-9CEB-8B599AF74907}"
+	ProjectSection(SolutionItems) = preProject
+		.github\GitVersion.yml = .github\GitVersion.yml
+		.github\pull_request_template.md = .github\pull_request_template.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{3921636A-36D5-44C0-8618-771E0E21E16C}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\cd.yml = .github\workflows\cd.yml
+		.github\workflows\ci.yml = .github\workflows\ci.yml
 	EndProjectSection
 EndProject
 Global
@@ -28,6 +41,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{91A1C769-80B4-4EC3-8511-F8E16F93E3C3} = {AEBB3D88-5135-466A-83EC-2AEA87906529}
+		{82355856-BF4D-4B46-9CEB-8B599AF74907} = {353C96EB-D680-4487-8BF9-895CAF084D1D}
+		{3921636A-36D5-44C0-8618-771E0E21E16C} = {82355856-BF4D-4B46-9CEB-8B599AF74907}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AC1709C0-0F7E-4F25-9D7F-D54B23ECC6CB}
