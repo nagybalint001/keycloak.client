@@ -6,7 +6,7 @@ using Refit;
 
 namespace Keycloak.Client
 {
-    internal interface IKeycloakAuthClient
+    public interface IKeycloakAuthClient
     {
         [Post("/auth/realms/master/protocol/openid-connect/token")]
         Task<TokenResponse> GetServiceTokenAsync([Body(BodySerializationMethod.UrlEncoded)] ServiceClientCredentials credentials);

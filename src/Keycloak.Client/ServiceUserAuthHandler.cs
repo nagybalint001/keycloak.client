@@ -8,13 +8,13 @@ using Microsoft.Net.Http.Headers;
 
 namespace Keycloak.Client
 {
-    internal class ServiceUserAuthHandler : DelegatingHandler
+    public class KeycloakServiceUserAuthHandler : DelegatingHandler
     {
         private readonly IKeycloakAuthClient _keycloakAuthClient;
         private readonly IKeycloakAuthTokenStore _keycloakAuthTokenStore;
         private readonly KeycloakOptions _keycloakOptions;
 
-        public ServiceUserAuthHandler(IKeycloakAuthClient keycloakAuthClient, IKeycloakAuthTokenStore keycloakAuthTokenStore, KeycloakOptions keycloakOptions)
+        public KeycloakServiceUserAuthHandler(IKeycloakAuthClient keycloakAuthClient, IKeycloakAuthTokenStore keycloakAuthTokenStore, KeycloakOptions keycloakOptions)
         {
             _keycloakAuthClient = keycloakAuthClient;
             _keycloakAuthTokenStore = keycloakAuthTokenStore;

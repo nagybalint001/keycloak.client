@@ -5,7 +5,7 @@ using Keycloak.Client.Models;
 
 namespace Keycloak.Client
 {
-    internal interface IKeycloakAuthTokenStore
+    public interface IKeycloakAuthTokenStore
     {
         Task<string> GetOrFetchAccessTokenAsync(Func<Task<TokenResponse>> fetchTokenFunc);
     }

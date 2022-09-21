@@ -20,13 +20,13 @@ namespace Keycloak.Client.Extensions
                 .AddRefitClient<IKeycloakAuthClient>()
                 .ConfigureHttpClient(c => c.BaseAddress = new Uri(options.KeycloakBasePath));
 
-            services.AddTransient<ServiceUserAuthHandler>();
+            services.AddTransient<KeycloakServiceUserAuthHandler>();
             services.AddSingleton<IKeycloakAuthTokenStore, KeycloakAuthTokenStore>();
 
             services
                 .AddRefitClient<IKeycloakUserClient>()
                 .ConfigureHttpClient(c => c.BaseAddress = new Uri($"{options.KeycloakBasePath}/auth/admin/realms/{options.Realm}"))
-                .AddHttpMessageHandler<ServiceUserAuthHandler>();
+                .AddHttpMessageHandler<KeycloakServiceUserAuthHandler>();
 
             return services;
         }
