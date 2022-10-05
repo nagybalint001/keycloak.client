@@ -4,6 +4,8 @@
     {
         public string KeycloakBasePath { get; set; }
 
+        public string AuthRealm { get; set; }
+
         public string Realm { get; set; }
 
         public string ClientId { get; set; }
