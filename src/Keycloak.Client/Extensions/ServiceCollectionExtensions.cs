@@ -18,7 +18,7 @@ namespace Keycloak.Client.Extensions
 
             services
                 .AddRefitClient<IKeycloakAuthClient>()
-                .ConfigureHttpClient(c => c.BaseAddress = new Uri(options.KeycloakBasePath));
+                .ConfigureHttpClient(c => c.BaseAddress = new Uri($"{options.KeycloakBasePath}/auth/realms/{(string.IsNullOrEmpty(options.AuthRealm) ? "master" : options.AuthRealm)}"));
 
             services.AddTransient<KeycloakServiceUserAuthHandler>();
             services.AddSingleton<IKeycloakAuthTokenStore, KeycloakAuthTokenStore>();
