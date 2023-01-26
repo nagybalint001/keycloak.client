@@ -18,19 +18,19 @@ namespace Keycloak.Client.Extensions
 
             services
                 .AddRefitClient<IKeycloakAuthClient>()
-                .ConfigureHttpClient(c => c.BaseAddress = new Uri($"{options.KeycloakBasePath}/auth/realms/{(string.IsNullOrEmpty(options.AuthRealm) ? "master" : options.AuthRealm)}"));
+                .ConfigureHttpClient(c => c.BaseAddress = new Uri($"{options.KeycloakBasePath}/realms/{(string.IsNullOrEmpty(options.AuthRealm) ? "master" : options.AuthRealm)}"));
 
             services.AddTransient<KeycloakServiceUserAuthHandler>();
             services.AddSingleton<IKeycloakAuthTokenStore, KeycloakAuthTokenStore>();
 
             services
                 .AddRefitClient<IKeycloakUserClient>()
-                .ConfigureHttpClient(c => c.BaseAddress = new Uri($"{options.KeycloakBasePath}/auth/admin/realms/{options.Realm}"))
+                .ConfigureHttpClient(c => c.BaseAddress = new Uri($"{options.KeycloakBasePath}/admin/realms/{options.Realm}"))
                 .AddHttpMessageHandler<KeycloakServiceUserAuthHandler>();
 
             services
                 .AddRefitClient<IKeycloakEventClient>()
-                .ConfigureHttpClient(c => c.BaseAddress = new Uri($"{options.KeycloakBasePath}/auth/admin/realms/{options.Realm}"))
+                .ConfigureHttpClient(c => c.BaseAddress = new Uri($"{options.KeycloakBasePath}/admin/realms/{options.Realm}"))
                 .AddHttpMessageHandler<KeycloakServiceUserAuthHandler>();
 
             return services;
