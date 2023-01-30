@@ -1,10 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using Keycloak.Client.Models;
+using RestEase;
+using System.Threading.Tasks;
 
-using Keycloak.Client.Models;
-
-using Refit;
-
-namespace Keycloak.Client
+namespace Keycloak.Client.Clients
 {
     public interface IKeycloakAuthClient
     {

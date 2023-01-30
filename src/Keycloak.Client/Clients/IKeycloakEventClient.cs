@@ -1,8 +1,9 @@
-using Refit;
+using Keycloak.Client.Models;
+using RestEase;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Keycloak.Client.Models
+namespace Keycloak.Client.Clients
 {
     public interface IKeycloakEventClient
     {
@@ -14,7 +15,7 @@ namespace Keycloak.Client.Models
         int? first = null,
         string ipAddress = null,
         int? max = null,
-        [Query(CollectionFormat.Multi)] IEnumerable<string> type = null,
+        [Query] IEnumerable<string> type = null,
         string user = null);
     }
 }

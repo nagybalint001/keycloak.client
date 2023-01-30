@@ -1,15 +1,15 @@
-﻿namespace Keycloak.Client.Models
+﻿namespace Keycloak.Client.Options
 {
     public class KeycloakOptions
     {
-        public string KeycloakBasePath { get; set; }
+        public string KeycloakBasePath { get; init; }
 
-        public string AuthRealm { get; set; }
+        public string AuthRealm { get; init; }
 
-        public string Realm { get; set; }
+        public string Realm { get; init; }
 
-        public string ClientId { get; set; }
+        public string ClientId { get; init; }
 
-        public string ClientSecret { get; set; }
+        public string ClientSecret { get; init; }
     }
 }

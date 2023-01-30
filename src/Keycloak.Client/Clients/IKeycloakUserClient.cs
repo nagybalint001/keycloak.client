@@ -1,12 +1,10 @@
-﻿using System;
+﻿using Keycloak.Client.Models;
+using RestEase;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using Keycloak.Client.Models;
-
-using Refit;
-
-namespace Keycloak.Client
+namespace Keycloak.Client.Clients
 {
     public interface IKeycloakUserClient
     {
@@ -52,7 +50,7 @@ namespace Keycloak.Client
             Guid userId,
             [Body]List<string> actions,
             [Query] int? lifespan = null,
-            [Query][AliasAs("redirect_uri")] string redirectUri = null,
-            [Query][AliasAs("client_id")] string clientId = null);
+            [Query("redirect_uri")] string redirectUri = null,
+            [Query("client_id")] string clientId = null);
     }
 }

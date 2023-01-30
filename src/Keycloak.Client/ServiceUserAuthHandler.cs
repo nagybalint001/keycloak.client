@@ -1,9 +1,11 @@
-﻿using System.Net.Http;
+﻿using Keycloak.Client.Clients;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
 using Keycloak.Client.Models;
-
+using Keycloak.Client.Options;
+using Keycloak.Client.Stores;
 using Microsoft.Net.Http.Headers;
 
 namespace Keycloak.Client

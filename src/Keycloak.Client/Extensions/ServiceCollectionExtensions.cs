@@ -1,10 +1,9 @@
-﻿using System;
-
-using Keycloak.Client.Models;
-
+﻿using Keycloak.Client.Clients;
+using System;
+using Keycloak.Client.Options;
+using Keycloak.Client.Stores;
 using Microsoft.Extensions.DependencyInjection;
-
-using Refit;
+using RestEase.HttpClientFactory;
 
 namespace Keycloak.Client.Extensions
 {
@@ -16,23 +15,18 @@ namespace Keycloak.Client.Extensions
             configure(options);
             services.AddSingleton(options);
 
-            services
-                .AddRefitClient<IKeycloakAuthClient>()
-                .ConfigureHttpClient(c => c.BaseAddress = new Uri($"{options.KeycloakBasePath}/realms/{(string.IsNullOrEmpty(options.AuthRealm) ? "master" : options.AuthRealm)}"));
+            services.AddRestEaseClient<IKeycloakAuthClient>(
+                $"{options.KeycloakBasePath}/realms/{(string.IsNullOrEmpty(options.AuthRealm) ? "master" : options.AuthRealm)}");
 
             services.AddTransient<KeycloakServiceUserAuthHandler>();
             services.AddSingleton<IKeycloakAuthTokenStore, KeycloakAuthTokenStore>();
-
-            services
-                .AddRefitClient<IKeycloakUserClient>()
-                .ConfigureHttpClient(c => c.BaseAddress = new Uri($"{options.KeycloakBasePath}/admin/realms/{options.Realm}"))
+            
+            services.AddRestEaseClient<IKeycloakUserClient>($"{options.KeycloakBasePath}/admin/realms/{options.Realm}")
                 .AddHttpMessageHandler<KeycloakServiceUserAuthHandler>();
-
-            services
-                .AddRefitClient<IKeycloakEventClient>()
-                .ConfigureHttpClient(c => c.BaseAddress = new Uri($"{options.KeycloakBasePath}/admin/realms/{options.Realm}"))
+        
+            services.AddRestEaseClient<IKeycloakEventClient>($"{options.KeycloakBasePath}/admin/realms/{options.Realm}")
                 .AddHttpMessageHandler<KeycloakServiceUserAuthHandler>();
-
+            
             return services;
         }
     }

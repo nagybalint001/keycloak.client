@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Keycloak.Client.Models;
+using System;
 using System.Threading.Tasks;
 
-using Keycloak.Client.Models;
-
-namespace Keycloak.Client
+namespace Keycloak.Client.Stores
 {
     public class KeycloakAuthTokenStore : IKeycloakAuthTokenStore
     {
