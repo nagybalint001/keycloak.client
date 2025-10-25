@@ -5,7 +5,7 @@
 		<Version>$(GITVERSION_MAJORMINORPATCH)</Version>
 		<Authors>Bálint Nagy</Authors>
 		<Description>HttpClient wrapper for Keycloak API</Description>
-		<Copyright>Copyright (c) 2021 Bálint Nagy</Copyright>
+		<Copyright>Copyright (c) 2025 Bálint Nagy</Copyright>
 		<PackageProjectUrl>https://github.com/nagybalint001/keycloak.client</PackageProjectUrl>
 		<PackageIcon>keycloak_icon.png</PackageIcon>
 		<PackageIconUrl />
@@ -26,5 +26,9 @@
 		<None Include="../keycloak_icon.png" Pack="true" PackagePath="\" />
 		<None Include="../../LICENSE" Pack="true" PackagePath="\" />
 		<None Include="../../README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DotNet.ReproducibleBuilds" Version="1.2.39" PrivateAssets="All"/>
 	</ItemGroup>
 </Project>
