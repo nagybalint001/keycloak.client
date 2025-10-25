@@ -1,14 +1,17 @@
-mode: Mainline
+mode: ContinuousDelivery
 commit-message-incrementing: Enabled
 increment: None
 tag-prefix: '[vV]'
 assembly-versioning-scheme: MajorMinorPatch
 assembly-file-versioning-scheme: MajorMinorPatch
 assembly-informational-format: '{MajorMinorPatch}'
+strategies:
+  - Fallback
+  - MergeMessage
+  - Mainline
 branches:
-  master:
+  main:
     increment: None
-    regex: 'master$|main$'
   release:
     increment: None
   feature:
@@ -21,4 +24,3 @@ branches:
     increment: None
   develop:
     increment: None
-    is-mainline: true
