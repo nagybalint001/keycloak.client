@@ -7,10 +7,11 @@ namespace Keycloak.Client.Models
     public interface IKeycloakEventClient
     {
         [Get("/events")]
-        Task<List<EventResponse>> GetEventsAsync(
+        Task<List<EventRepresentation>> GetEventsAsync(
         string client = null,
         string dateFrom = null,
         string dateTo = null,
+        string direction = null,
         int? first = null,
         string ipAddress = null,
         int? max = null,

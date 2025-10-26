@@ -23,20 +23,26 @@ namespace Keycloak.Client
             string idpUserId = null,
             string lastName = null,
             int? max = null,
+            string q = null,
             string search = null,
             string username = null);
 
-        [Get("/users")]
+        [Get("/users/count")]
         Task<int> GetUsersCountAsync(
             string email = null,
             bool? emailVerified = null,
+            bool? enabled = null,
+            bool? exact = null,
             string firstName = null,
+            string idpAlias = null,
+            string idpUserId = null,
             string lastName = null,
+            string q = null,
             string search = null,
             string username = null);
 
         [Get("/users/{userId}")]
-        Task<UserRepresentation> GetUserAsync(Guid userId);
+        Task<UserRepresentation> GetUserAsync(Guid userId, bool? userProfileMetadata);
 
         [Post("/users")]
         Task CreateUserAsync([Body] UserRepresentation user);
@@ -50,9 +56,9 @@ namespace Keycloak.Client
         [Put("/users/{userId}/execute-actions-email")]
         Task ExecuteActionsAsync(
             Guid userId,
-            [Body]List<string> actions,
+            [Body] List<string> actions,
+            [Query][AliasAs("client_id")] string clientId = null,
             [Query] int? lifespan = null,
-            [Query][AliasAs("redirect_uri")] string redirectUri = null,
-            [Query][AliasAs("client_id")] string clientId = null);
+            [Query][AliasAs("redirect_uri")] string redirectUri = null);
     }
 }
