@@ -29,6 +29,11 @@ namespace Keycloak.Client.Extensions
                 .AddHttpMessageHandler<KeycloakServiceUserAuthHandler>();
 
             services
+                .AddRefitClient<IKeycloakGroupClient>()
+                .ConfigureHttpClient(c => c.BaseAddress = new Uri($"{options.KeycloakBasePath}/admin/realms/{options.Realm}"))
+                .AddHttpMessageHandler<KeycloakServiceUserAuthHandler>();
+
+            services
                 .AddRefitClient<IKeycloakEventClient>()
                 .ConfigureHttpClient(c => c.BaseAddress = new Uri($"{options.KeycloakBasePath}/admin/realms/{options.Realm}"))
                 .AddHttpMessageHandler<KeycloakServiceUserAuthHandler>();
