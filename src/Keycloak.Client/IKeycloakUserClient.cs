@@ -42,7 +42,7 @@ namespace Keycloak.Client
             string username = null);
 
         [Get("/users/{userId}")]
-        Task<UserRepresentation> GetUserAsync(Guid userId, bool? userProfileMetadata);
+        Task<UserRepresentation> GetUserAsync(Guid userId, bool? userProfileMetadata = null);
 
         [Post("/users")]
         Task CreateUserAsync([Body] UserRepresentation user);
@@ -60,5 +60,24 @@ namespace Keycloak.Client
             [Query][AliasAs("client_id")] string clientId = null,
             [Query] int? lifespan = null,
             [Query][AliasAs("redirect_uri")] string redirectUri = null);
+
+        [Get("/users/{userId}/groups")]
+        Task<List<GroupRepresentation>> GetUserGroupsAsync(
+            Guid userId,
+            bool? briefRepresentation = null,
+            int? first = null,
+            int? max = null,
+            string search = null);
+
+        [Get("/users/{userId}/groups/count")]
+        Task<int> GetUserGroupsCountAsync(
+            Guid userId,
+            string search = null);
+
+        [Delete("/users/{userId}/groups/{groupId}")]
+        Task DeleteUserGroupAsync(Guid userId, Guid groupId);
+
+        [Put("/users/{userId}/groups/{groupId}")]
+        Task AddUserToGroupAsync(Guid userId, Guid groupId);
     }
 }
